@@ -1,0 +1,8 @@
+*.o
+*.so
+*.d
+.vscode/
+simple_benchmark*
+simdle_benchmark*
+openblas_benchmark*
+/build/

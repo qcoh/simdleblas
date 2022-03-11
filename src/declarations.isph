@@ -1,0 +1,31 @@
+#pragma once
+
+uniform double cblas_sdot(
+    uniform const int N,
+    uniform const float X[],
+    uniform const int incX,
+    uniform const float Y[],
+    uniform const int incY);
+
+uniform double cblas_dsdot(
+    uniform const int N,
+    uniform const float X[],
+    uniform const int incX,
+    uniform const float Y[],
+    uniform const int incY);
+
+uniform double cblas_ddot(
+    uniform const int N,
+    uniform const double X[],
+    uniform const int incX,
+    uniform const double Y[],
+    uniform const int incY);
+
+uniform float cblas_sdsdot(
+    uniform const int N,
+    uniform const float alpha,
+    uniform const float X[],
+    uniform const int incX,
+    uniform const float Y[],
+    uniform const int incY);
+
