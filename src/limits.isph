@@ -1,3 +1,4 @@
 #pragma once
 
 #define FLT_LOWEST floatbits(0xff7fffff)
+#define DBL_LOWEST doublebits(0xffefffffffffffff)
