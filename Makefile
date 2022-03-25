@@ -1,8 +1,8 @@
 ISPCC=ispc
-ISPCFLAGS= -I include/ -M -O3 --pic --target=avx2
+ISPCFLAGS= -I include/ -M -O0 -g --pic --target=avx2
 ISPCLDLIBS= -lpthread
 
-CFLAGS += -Wall -Wextra -pedantic -I include/ -MMD -MP -O3
+CFLAGS += -Wall -Wextra -pedantic -I include/ -MMD -MP -O0 -g
 LDLIBS +=
 
 CXXFLAGS += -O3 -MMD -MP -fPIC -fno-exceptions
@@ -19,7 +19,7 @@ all: build/simdle/libblas.so benchmarks
 build/simdle/libblas.so: $(subst .ispc,.o,$(SOURCES)) $(TASKSYS_OBJ) | build
 	$(CC) -shared $(LDFLAGS) -o $@ $^ -fPIC -ldl -lm
 
-benchmarks: build/benchmark_dot build/benchmark_sum
+benchmarks: build/benchmark_dot build/benchmark_sum build/benchmark_isamax
 
 build/%: LDLIBS += -lopenblas
 build/%: benchmark/%.o | build build/simdle/libblas.so
