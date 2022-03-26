@@ -42,7 +42,7 @@ int main()
         total_time += toc(&start);
     }
 
-    printf("Sum: %f. Average time for %d iterations: %f (ms)\n", sum, NTEST, total_time / NTEST);
+    printf("cblas_ssum,\t\t%f,\t\t%f\n", sum, total_time / NTEST);
 
     return 0;
 }

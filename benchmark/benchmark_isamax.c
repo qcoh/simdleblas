@@ -42,7 +42,7 @@ void benchmark_isamax()
         total_time += toc(&start);
     }
 
-    printf("cblas_isamax: Result: %ld. Average time for %d iterations: %f (ms)\n", max_index, NTEST, total_time / NTEST);
+    printf("cblas_isamax,\t\t%ld,\t\t%f\n", max_index, total_time / NTEST);
 }
 
 int main()

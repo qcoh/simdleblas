@@ -49,7 +49,7 @@ void benchmark_dswap()
 
     const double x1234 = X[1234];
 
-    printf("cblas_dswap: X[1234] = %f. Average time for %d iterations: %f (ms)\n", x1234, NTEST, total_time / NTEST);
+    printf("cblas_dswap,\t\t%f,\t\t%f\n", x1234, total_time / NTEST);
 }
 
 int main()

@@ -19,42 +19,43 @@
 
 #define NTEST 100
 
-void benchmark_sswap()
+void benchmark_ddot()
 {
     srand(SEED);
 
-    float *X = malloc(sizeof(float) * XN);
-    float *Y = malloc(sizeof(float) * XN);
+    double *X = malloc(sizeof(double) * XN);
+    double *Y = malloc(sizeof(double) * YN);
 
     for (int i = 0; i < XN; i++)
     {
-        X[i] = rand() / (float)RAND_MAX;
+        X[i] = rand() / (double)RAND_MAX;
     }
+
     for (int i = 0; i < YN; i++)
     {
-        Y[i] = rand() / (float)RAND_MAX;
+        Y[i] = rand() / (double)RAND_MAX;
     }
 
     double total_time = 0;
+
+    double dot_product = 0;
 
     for (int i = 0; i < NTEST; i++)
     {
         struct timespec start = {0, 0};
         tic(&start);
 
-        cblas_sswap(N, X, INC_X, Y, INC_Y);
+        dot_product = cblas_ddot(N, X, INC_X, Y, INC_Y);
 
         total_time += toc(&start);
     }
 
-    const float x1234 = X[1234];
-
-    printf("cblas_sswap,\t\t%f,\t\t%f\n", x1234, total_time / NTEST);
+    printf("cblas_ddot,\t\t%f,\t\t%f\n", dot_product, total_time / NTEST);
 }
 
 int main()
 {
-    benchmark_sswap();
+    benchmark_ddot();
 
     return 0;
 }

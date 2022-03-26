@@ -50,7 +50,7 @@ void benchmark_daxpy()
 
     const double y1234 = Y[1234];
 
-    printf("cblas_daxpy: Y[1234] = %f. Average time for %d iterations: %f (ms)\n", y1234, NTEST, total_time / NTEST);
+    printf("cblas_daxpy,\t\t%f,\t\t%f\n", y1234, total_time / NTEST);
 }
 
 int main()

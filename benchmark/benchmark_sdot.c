@@ -50,47 +50,12 @@ void benchmark_sdot()
         total_time += toc(&start);
     }
 
-    printf("cblas_sdot: Result: %f. Average time for %d iterations: %f (ms)\n", dot_product, NTEST, total_time / NTEST);
-}
-
-void benchmark_ddot()
-{
-    srand(SEED);
-
-    double *X = malloc(sizeof(double) * XN);
-    double *Y = malloc(sizeof(double) * YN);
-
-    for (int i = 0; i < XN; i++)
-    {
-        X[i] = rand() / (double)RAND_MAX;
-    }
-
-    for (int i = 0; i < YN; i++)
-    {
-        Y[i] = rand() / (double)RAND_MAX;
-    }
-
-    double total_time = 0;
-
-    double dot_product = 0;
-
-    for (int i = 0; i < NTEST; i++)
-    {
-        struct timespec start = {0, 0};
-        tic(&start);
-
-        dot_product = cblas_ddot(N, X, INC_X, Y, INC_Y);
-
-        total_time += toc(&start);
-    }
-
-    printf("cblas_ddot: Result: %f. Average time for %d iterations: %f (ms)\n", dot_product, NTEST, total_time / NTEST);
+    printf("cblas_sdot,\t\t%f,\t\t%f\n", dot_product, total_time / NTEST);
 }
 
 int main()
 {
     benchmark_sdot();
-    benchmark_ddot();
 
     return 0;
 }
