@@ -19,7 +19,7 @@ all: build/simdle/libblas.so benchmarks
 build/simdle/libblas.so: $(subst .ispc,.o,$(SOURCES)) $(TASKSYS_OBJ) | build
 	$(CC) -shared $(LDFLAGS) -o $@ $^ -fPIC -ldl -lm
 
-benchmarks: build/benchmark_dot build/benchmark_sum build/benchmark_isamax build/benchmark_idamax build/benchmark_sswap
+benchmarks: build/benchmark_dot build/benchmark_sum build/benchmark_isamax build/benchmark_idamax build/benchmark_sswap build/benchmark_dswap
 
 build/%: LDLIBS += -lopenblas
 build/%: benchmark/%.o | build build/simdle/libblas.so
